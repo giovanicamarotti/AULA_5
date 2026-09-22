@@ -16,10 +16,11 @@ public class Main {
         GerenciadorLogin login = new GerenciadorLogin();
 
         // Simulação de logins de diferentes perfis.
-        login.montarPainel("ALUNO");
+        //Gio: Modificado para usar o Factory.
+        login.montarPainel(new CriaAluno());
         System.out.println();
-        login.montarPainel("PROFESSOR");
+        login.montarPainel(new CriaProfessor());
         System.out.println();
-        login.montarPainel("COORDENADOR");
+        login.montarPainel(new CriaCoordenador());
     }
 }
