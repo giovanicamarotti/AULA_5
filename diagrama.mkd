@@ -1,0 +1,62 @@
+# Diagrama das Classes e seu funcionamento
+
+```mermaid
+classDiagram
+    class Painel {
+        <<interface>>
+        +montar() void
+    }
+
+    class PainelAluno {
+        +montar() void
+    }
+    class PainelProfessor {
+        +montar() void
+    }
+    class PainelCoordenador {
+        +montar() void
+    }
+    class PainelZelador {
+        +montar() void
+    }
+
+    class CriadorPainel {
+        <<abstract>>
+        +criarPainel() Painel
+        +montar() Painel
+    }
+
+    class CriadorPainelAluno {
+        +criarPainel() Painel
+    }
+    class CriadorPainelProfessor {
+        +criarPainel() Painel
+    }
+    class CriadorPainelCoordenador {
+        +criarPainel() Painel
+    }
+    class CriadorPainelZelador {
+        +criarPainel() Painel
+    }
+
+    class GerenciadorLogin {
+        +montarPainel(CriadorPainel criador) Painel
+    }
+
+    Painel <|.. PainelAluno
+    Painel <|.. PainelProfessor
+    Painel <|.. PainelCoordenador
+    Painel <|.. PainelZelador
+
+    CriadorPainel <|-- CriadorPainelAluno
+    CriadorPainel <|-- CriadorPainelProfessor
+    CriadorPainel <|-- CriadorPainelCoordenador
+    CriadorPainel <|-- CriadorPainelZelador
+
+    CriadorPainelAluno ..> PainelAluno : cria
+    CriadorPainelProfessor ..> PainelProfessor : cria
+    CriadorPainelCoordenador ..> PainelCoordenador : cria
+    CriadorPainelZelador ..> PainelZelador : cria
+
+    GerenciadorLogin ..> CriadorPainel : usa
+```
