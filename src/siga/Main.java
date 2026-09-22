@@ -22,5 +22,7 @@ public class Main {
         login.montarPainel(new CriaProfessor());
         System.out.println();
         login.montarPainel(new CriaCoordenador());
+        System.out.println();
+        login.montarPainel(new CriaZelador());
     }
 }
